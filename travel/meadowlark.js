@@ -13,6 +13,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
 var fortunes = [
+
 	"Победи свои страхи, или они победят тебя.",
 	"Рекам нужны истоки.",
 	"Не бойся неведомого.",

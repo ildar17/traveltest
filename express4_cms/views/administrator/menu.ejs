@@ -1,0 +1,16 @@
+<%  if (locals.user) { -%>
+<div id="menu">
+    <%if (locals.admin) { -%>
+    <span class="admin"> <a href="/admin/administrator/adm_sql">Adm.sql</a></span>
+    <span class="admin"> <a href="/admin/administrator/adm_template">Adm.template</a></span>
+    <span class="admin"> <a href="/admin/administrator/adm_access">Adm.access</a></span>
+    <% } -%>
+    <span class="name"><%= user %></span>
+    <a href='/admin/logout'>Выход</a>
+</div>
+<% } else { -%>
+<div id="menu">
+    <a href="/admin/login">login</a>
+    <a href="/admin/register">register</a>
+</div>
+<% } -%>

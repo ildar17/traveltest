@@ -1,0 +1,56 @@
+<% include top %>
+                    <div class="wrapperContent">
+
+                        <% if(permission.indexOf('1', 2) == 2 || permission.indexOf('1', 1) == 1) { %>
+                        <fieldset>
+                            <legend>Права доступа к разделам</legend>
+                            <%-accessUser%>
+                        </fieldset>
+                        <% } %>
+                        <% if(permission.indexOf('1', 2) == 2) { %>
+                        <fieldset>
+                            <legend>Править учётные данные</legend>
+                            <p><span class="commentForm" >Поля отмеченные звёздочкой обязательны для заполнения! Чтобы другие поля сделать пустыми, нужно ввести в них фразу: нет данных.</span></p>
+                            <form class="subform" action="" method="post">
+                                <p><label class="label"><span class="star">*</span> Ваш E-mail: </label><input type="text" name="admin[email]" value="<%=email%>" />
+                                <span class="commentForm" >В случае изменения E-mail, Вы будете перенаправлены на главную страницу, нужно будет пройти аутентификацию, указав новый E-mail.</span></p>
+                                <p><label class="label"><span class="star">*</span> Пароль: </label><input type="password" name="admin[pass]" value="" />
+                                <span class="commentForm" >Оставьте поле пустым, если нужен пароль без изменений.</span></p>
+                                <p><label class="label"><span class="star">*</span> Ваш Login: </label><input type="text" name="admin[login]" value="<%=login%>" />
+                                <span class="commentForm" >Желательно изменить login, присвоенный автоматически при регистрации!</span></p>
+                                <p><label class="label">Ваше Имя: </label><input type="text" name="admin[first_name]" value="<%=firstName%>" /></p>
+                                <p><label class="label">Ваша Фамилия:  </label><input type="text" name="admin[last_name]" value="<%=lastName%>" /></p>
+                                <p><label class="label">Дата рождения:  </label><input  type="text" name="admin[dob]" value="<%=dob%>" />
+                                    гггг-мм-дд <span class="commentForm" >- форма записи.</span></p>
+                                <p><label class="label">Пол:  </label>
+                                    <select class="fieldForm" name="admin[gender]">
+                                        <option <% if(gender=='нет данных') { %> selected <% } %>value="нет данных">нет данных</option>
+                                        <option <% if(gender==1) { %> selected <% } %>value="1">муж.</option>
+                                        <option <% if(gender==2) { %> selected <% } %>value="2">жен.</option>
+                                    </select>
+                                </p>
+                                <p><label class="label">Ваш город:  </label><input type="text" name="admin[city]" value="<%=city%>" /></p>
+                                <p><label class="label">Resume:  </label><textarea name="admin[resume]"><%-resume%></textarea></p>
+                                <script>
+                                    CKEDITOR.replace( 'admin[resume]' );
+                                </script>
+                                <input type="hidden" name="admin[id_user]" value="<%=id_user%>">
+                                <p><input class="edit_btn" type="submit" name="admin[edit]" value="Править личные данные" /></p>
+                            </form>
+                        </fieldset>
+                        <% } %>
+                        <% if(permission.indexOf('1', 1) == 1) { %>
+                        <fieldset>
+                            <legend>Удалить личный кабинет</legend>
+                            <form class="subform" action="" method="post">
+                            <input type="hidden" name="admin[id_user]" value="<%=id_user%>">
+                            <p><input class="drop_btn" type="submit" name="admin[drop]" value="Удалить личный кабинет" /><br>
+                            <span class="commentForm">Если нужно удалить не только личный кабинет, но и Ваши материалы,
+                                отправьте письмо администратору по этому адресу: <%=emailAdmin%>, укажите в письме эту учётную запись: <%=email%>.</span>
+                            </p>
+                            </form>
+                        </fieldset>
+                        <% } %>
+                    </div>
+
+<% include bottom %>

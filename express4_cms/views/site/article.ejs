@@ -1,0 +1,8 @@
+                    <div class="content">
+                        <% for(var i=0; i < articleList.length; i++){ %>
+                        <h3><a href="<%-pathname%>/<%-articleList[i].alias%>"><%-articleList[i].title%></a></h3>
+                        <% } %>
+                        <% if(articlePage) { %>
+                        <h2><%-articlePage.content%></h2>
+                        <% } %>
+                    </div><!--content-->

@@ -1,0 +1,96 @@
+<% include top %>
+<div class="wrapperContent <%-template%>">
+    <% if( permission.indexOf('1', 3) == 3 || permission.indexOf('1', 2) == 2 || permission.indexOf('1', 1) == 1) { %>
+    <fieldset>
+        <legend>Шаблон формы</legend>
+        <p><span class="commentForm" >Поля отмеченные звёздочкой обязательны для заполнения!</span></p>
+        <form class="subform" action="" method="post">
+            <p><label class="label"><span class="star">*</span> Заголовок: </label><input type="text" name="<%-template%>[title]" value="<%
+
+                if(locals.messages.length != 0){
+                    messages.forEach(function(message) {
+                        if(message.type == 'repeatData'){ %><%=message.string.title %><% }
+                    })
+                } else { %><%=formValue.title %><% } %>" size = "60" /></p>
+            <p><label class="label">Псевдоним: </label><input type="text" name="<%-template%>[alias]" value="<%
+
+                if(locals.messages.length != 0){
+                messages.forEach(function(message) {
+                if(message.type == 'repeatData'){ %><%=message.string.alias %><% }
+                })
+                } else { %><%=formValue.alias %><% } %>" size = "60" />
+                <input type="radio" name="<%-template%>[latin]" value="1" checked>latin
+                <input type="radio" name="<%-template%>[latin]" value="0">original<p>
+            <p><label class="label">Описание: </label><input type="text" name="<%-template%>[description]" value="<%
+
+                if(locals.messages.length != 0){
+                    messages.forEach(function(message) {
+                        if(message.type == 'repeatData'){ %><%-message.string.description %><% }
+                    })
+                } else { %><%-formValue.description%><% } %>" size = "60" /></p>
+            <p><label class="label">Цена: </label><input type="text" name="<%-template%>[price]" value="<%
+
+                if(locals.messages.length != 0){
+                messages.forEach(function(message) {
+                if(message.type == 'repeatData'){ %><%-message.string.price %><% }
+                })
+                } else { %><%-formValue.price%><% } %>" size = "10" /></p>
+            <p><label class="label">Приоритет: </label><input type="text" name="<%-template%>[priority]" value="<%
+
+                if(locals.messages.length != 0){
+                    messages.forEach(function(message) {
+                        if(message.type == 'repeatData'){ %><%-message.string.priority %><% }
+                    })
+                } else { %><%-formValue.priority%><% } %>" size = "10" /></p>
+            <p><label class="label">Контент: </label><textarea name="<%-template%>[content]"><%
+
+                    if(locals.messages.length != 0){
+                    messages.forEach(function(message) {
+                    if(message.type == 'repeatData'){ %><%=message.string.content %><% }
+                    })
+                    } else { %><%=formValue.content %><% } %></textarea></p>
+            <script>
+                CKEDITOR.replace( '<%-template%>[content]' );
+            </script>
+            <% if(permission.indexOf('1', 0) == 0) { %>
+            <p><label class="label">Публиковать: </label>
+                <select name="<%-template%>[status]">
+                    <% if(formValue != ''){ %>
+                    <option<% if(formValue.status == true){ %> selected <% } %> value="1">Да</option>
+                    <option<% if(formValue.status == false){ %> selected <% } %> value="0">Нет</option>
+                    <% } else { %>
+                    <option selected value="1">Да</option>
+                    <option value="0">Нет</option>
+                    <% } %>
+                </select>
+                На главую:
+                <select name="<%-template%>[main]">
+                    <% if(formValue != ''){ %>
+                    <option<% if(formValue.main  == true){ %> selected <% } %> value="1">Да</option>
+                    <option<% if(formValue.main  == false){ %> selected <% } %> value="0">Нет</option>
+                    <% } else { %>
+                    <option value="1">Да</option>
+                    <option selected value="0">Нет</option>
+                    <% } %>
+                </select>
+            </p>
+            <%-section%>
+            <%-selectOnePage%>
+            <% } %>
+            <p>
+            <% if (action == 'edit' && permission.indexOf('1', 2) == 2) { %>
+            <input  class="edit_btn" type="submit" name="<%-template%>[edit]" value="Править" /> &nbsp;&nbsp;&nbsp;<%-renew%>
+            <% } %>
+            <% if (action == 'drop' && permission.indexOf('1', 1) == 1) { %>
+            <input  class="drop_btn" type="submit" name="<%-template%>[drop]" value="Удалить" /> &nbsp;&nbsp;&nbsp;<%-renew%>
+            <% } %>
+            <% if (action == '' && permission.indexOf('1', 3) == 3) { %>
+            <input class="create_btn" type="submit" name="<%-template%>[create]" value="Сохранить" />
+            <% } %>
+            </p>
+
+        </form>
+    </fieldset>
+    <% } %>
+</div>
+<% include bottom %>

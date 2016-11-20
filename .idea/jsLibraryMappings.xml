@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/72" libraries="{HTML, HTML5 / EcmaScript 5, WebGL, workspace/chatrooms/node_modules, workspace/express4_cms/node_modules}" />
+    <file url="file://$PROJECT_DIR$/chatrooms" libraries="{workspace/chatrooms/node_modules}" />
+    <file url="file://$PROJECT_DIR$/express4_cms" libraries="{workspace/express4_cms/node_modules}" />
+    <file url="PROJECT" libraries="{HTML, HTML5 / EcmaScript 5}" />
+    <includedPredefinedLibrary name="ECMAScript 6" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>

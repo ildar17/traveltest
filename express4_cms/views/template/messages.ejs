@@ -1,0 +1,6 @@
+<% if(locals.messages) { %>
+<% messages.forEach(function(message) {
+if(message.type=='error' || message.type=='readyOk'){ %>
+<h4 class='<%= message.type %>'><%= message.string %> <a class="reset" href="<%=urlPage%>">X</a></h4>
+<% }}) %> <% removeMessages() %>
+<% } %>

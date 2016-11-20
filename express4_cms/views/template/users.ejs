@@ -1,0 +1,31 @@
+<% include top %>
+                <div class="wrapperContent users">
+                    <% if(permission.indexOf('1', 3) == 3 || permission.indexOf('1', 4) == 4) {  %>
+                    <fieldset>
+                        <legend>Добавление и удаление пользователей</legend>
+                        <% if(permission.indexOf('1', 3) == 3) {  %>
+                        <form class="subform" action="" method="post">
+                            <p><label class="label">E-mail: </label><input type="text" name="<%-template%>[email]" value="<%
+                                if(locals.messages){
+                                    messages.forEach(function(message) {
+                                        if(message.type == 'repeatData'){ %><%= message.string.email %><% }
+                                    })
+                                }
+                                %>" /></p>
+                            <p><label class="label">Пароль: </label><input type="password" name="<%-template%>[pass]" value="<%
+                                if(locals.messages){
+                                    messages.forEach(function(message) {
+                                        if(message.type == 'repeatData'){ %><%= message.string.pass %><% }
+                                    })
+                                }
+                                %>" /></p>
+                            <input class="create_btn" type="submit" name="<%-template%>[create]" value="Добавить пользователя" />
+                        </form>
+                        <% } %>
+                        <% if(permission.indexOf('1', 4) == 4) {  %>
+                        <%-tableUsers%>
+                        <% } %>
+                    </fieldset>
+                    <% } %>
+                </div>
+<% include bottom %>

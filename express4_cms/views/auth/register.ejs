@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<% include menu %>
+<h1><%= title %></h1>
+<p>Заполните форму ниже, чтобы зарегистрироваться!</p>
+<% include messages %>
+<form action="/admin/register" method="post">
+    <p>
+        <input type="text" name="user[email]" placeholder="E-mail" value="<%
+        if(locals.messages){
+            messages.forEach(function(message) {
+                if(message.type == 'repeatData'){ %><%= message.string.email %><% }
+            })
+        }
+        %>"/>
+    </p>
+    <p>
+        <input type="password" name="user[pass]" placeholder="Password" value="<%
+        if(locals.messages){
+            messages.forEach(function(message) {
+                if(message.type == 'repeatData'){ %><%= message.string.pass %><% }
+            })
+        }
+        %>"/>
+    </p>
+    <p>
+        <input type="text" name="user[captcha]" placeholder="<%
+        if(locals.messages){
+            messages.forEach(function(message) {
+                if(message.type == "repeatData"){ %><%= message.string.captcha %><% }
+            })
+        }
+        %>" />
+    </p>
+    <p>
+        <input type="checkbox" name="user[remember]" value="1">Запомнить на компьюторе
+    </p>
+    <p>
+        <input type="submit" value="Зарегистрироваться" />
+    </p>
+
+</form>
+</body>
+</html>

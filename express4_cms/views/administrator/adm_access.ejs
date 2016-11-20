@@ -1,0 +1,68 @@
+<% include top %>
+                <% if(triggerAccess == '' && triggerUsers == '' && triggerName == '') {%>
+                <div class="wrapperContent administrator">
+                    <fieldset>
+                        <legend>Coздание роли</legend>
+                        <form class="subform" action="" method="post">
+                            <p><label class="label">Название роли: </label><input type="text" name="administrator[nameRole]" value="<%=nameRole%>" />
+                            <p><label class="label">Выбрать роль для пользователей:  </label>
+                                <select name="administrator[users]">
+                                    <option <% if(users == null) { %>selected<% } %> value="">модераторы</option>
+                                    <option <% if(users == 1) { %>selected<% } %> value="1">пользователи</option>
+                                </select>
+                            <span class="commentForm" > Все остальные роли по умолчанию относятся к модераторам!</span></p>
+                            <% if(nameRole == '') { %>
+                            <p><input class="create_btn" type="submit" name="administrator[createRole]" value="Сохранить" /></p>
+                            <% } else { %>
+                            <p><input class="edit_btn" type="submit" name="administrator[editRole]" value="Править" />
+                                &nbsp;&nbsp;&nbsp;<a class="renew_btn" href="/admin/administrator/adm_access">Вернуться</a></a> </p>
+                            <% } %>
+                        </form>
+                        <%-tableRole%>
+                        <%-tableRoleUrl%>
+                        <%-tableUsers%>
+                        <%-tableAccess%>
+                    </fieldset>
+                </div>
+                <% } %>
+                <% if(triggerAccess) {%>
+                <div class="wrapperContent administrator">
+                    <fieldset>
+                        <legend>Настроить роль</legend>
+                        <form class="subform" action="" method="post">
+
+                            <%-tableTuneRole%>
+                            <p><input class="create_btn" type="submit" name="administrator[createTuneRole]" value="Сохранить настройки" />
+                                &nbsp;&nbsp;&nbsp;<a class="renew_btn" href="/admin/administrator/adm_access">Закрыть форму</a> </p>
+                        </form>
+                    </fieldset>
+                </div>
+                <% } %>
+                <% if(triggerUsers) {%>
+                <div class="wrapperContent administrator">
+                    <fieldset>
+                        <legend>Присвоить роль</legend>
+                        <form class="subform" action="" method="post">
+
+                            <%-tableOneUser%>
+                            <p><input class="create_btn" type="submit" name="administrator[assignRole]" value="Присвоить роль" />
+                                &nbsp;&nbsp;&nbsp;<a class="renew_btn" href="/admin/administrator/adm_access">Закрыть форму</a> </p>
+                        </form>
+                    </fieldset>
+                </div>
+                <% } %>
+                <% if(triggerName) {%>
+                <div class="wrapperContent administrator">
+                    <fieldset>
+                        <legend>Присвоить имя, приоритет</legend>
+                        <form class="subform" action="" method="post">
+                            <p><label class="label">Имя : </label><input type="text" name="administrator[name]" value="<%-formNamePermit.name%>" size = "60" /></p>
+                            <p><label class="label">Приоритет: </label><input type="text" name="administrator[priority]" value="<%-formNamePermit.priority %>" size = "10" /></p>
+                            <p><input class="create_btn" type="submit" name="administrator[addName]" value="Присвоить имя" />
+                                &nbsp;&nbsp;&nbsp;<a class="renew_btn" href="/admin/administrator/adm_access">Закрыть форму</a> </p>
+                        </form>
+                    </fieldset>
+                </div>
+                <% } %>
+
+<% include bottom %>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/sql.css"/>
+    <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="main">
+        <div class="all">
+            <div class="topMenu">
+                <% include menu %>
+            </div>
+            <% include messages %>
+            <div class="content">
+                <div class="wrapperContent sql">
+                    <% if(triggerEditQuery == '') { %>
+                    <fieldset>
+                        <legend>Запрос к базе данных PostgreSQL, вывод данных</legend>
+                        <form class="subform" action="" method="post">
+                            <p><textarea name="sql[query]" cols="185" rows="6"><%
+                                    if(locals.messages){
+                                        messages.forEach(function(message) {
+                                            if(message.type == 'repeatData'){ %><%= message.string.query %><% }
+                                        })
+                                    }
+                                    %></textarea></p>
+                            <p><input type="radio" name="sql[horizontally]" value="1" checked>горизонтально
+                                <input type="radio" name="sql[horizontally]" value="0">вертикально
+                                <input class="create_btn" type="submit" name="sql[create]" value="Отправить Запрос"/>
+                                &nbsp;&nbsp;&nbsp;<a class="renew_btn" href="/admin/administrator/adm_sql">Обновить страницу</a></p>
+                            <%- table %>
+                        </form>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Архив набранных запросов</legend>
+                        <%- archive %>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Блокнот запросов</legend>
+                        <%- notebook %>
+                    </fieldset>
+                    <% } %>
+                    <% if(triggerEditQuery) { %>
+                    <fieldset>
+                        <legend>Редактировать записи в блокноте запросов</legend>
+                        <form class="subform" action="" method="post">
+                            <p><label class="label">Теги через запятую: </label><input type="text" name="sql[tags]"
+                                                                                       value="<%- formEditQuery.tags %>"
+                                                                                       size="30"/></p>
+                            <p><label class="label">Описание запроса: </label><textarea name="sql[description]"
+                                                                                        cols="80"
+                                                                                        rows="6"><%- formEditQuery.description %></textarea>
+                            </p>
+                            <p><label class="label">Приоритет: </label><input type="text" name="sql[priority]"
+                                                                              value="<%- formEditQuery.priority %>"
+                                                                              size="10"/></p>
+                            <p><input class="edit_btn" type="submit" name="sql[editQuery]" value="Править"/>
+                                &nbsp;&nbsp;&nbsp;<a class="renew_btn" href="/admin/administrator/adm_sql">Закрыть форму</a></p>
+                        </form>
+                        <%- tableEditQuery %>
+                    </fieldset>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</div>
+</body>
+</html>

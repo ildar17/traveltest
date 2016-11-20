@@ -1,0 +1,30 @@
+<% include top %>
+<div class="wrapperContent <%-template%>">
+    <% if(trigger == '') { %>
+    <fieldset>
+        <legend>Список разделов</legend>
+        <div class="wrapperTable">
+            <div class="table">
+                <%-menuList%>
+            </div>
+        </div>
+
+    </fieldset>
+    <% } %>
+    <% if(trigger == 'putin') { %>
+        <fieldset>
+            <legend>Вложить раздел</legend>
+            <form class="subform" action="" method="post">
+                <p><label class="label">Вложить раздел: </label><input type="text" name="<%-template%>[titleSection]" value="<%-sectionTitle.title%>" size = "40" /></p>
+                <p><label class="label">В: </label>
+                    <select name="<%-template%>[selectPutin]">
+                        <%-select%>
+                    </select>
+                </p>
+                <p><input class="create_btn" type="submit" name="<%-template%>[editPutin]" value="Вложить" />
+                    <a href="/admin/template/<%-template%>">Закрыть форму</a> </p>
+            </form>
+        </fieldset>
+    <% } %>
+</div>
+<% include bottom %>

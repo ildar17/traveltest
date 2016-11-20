@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<% include menu %>
+<h1><%= title %></h1>
+<p>В форму ниже введите свой электронный адрес, указанный при регистрации, на Ваш E-mail придет письмо с сылкой для восстановления пароля</p>
+<% include messages %>
+<form action="/admin/recovery" method="post">
+    <p>
+        <input type="text" name="user[rebuild]" placeholder="E-mail" value="<%
+        if(locals.messages){
+            messages.forEach(function(message) {
+                if(message.type == 'repeatData'){ %><%= message.string.rebuild %><% }
+            })
+        }
+        %>"/>
+    </p>
+    <p>
+        <input type="text" name="user[captcha]" placeholder="<%
+        messages.forEach(function(message) {
+            if(message.type == "repeatData"){ %><%= message.string.captcha %><% }
+        })
+        %>" />
+    </p>
+    <p>
+        <input type="submit" value="Sign Up" />
+    </p>
+</form>
+</body>
+</html>

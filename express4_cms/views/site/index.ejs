@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <link rel='stylesheet' href='/css/style.css' />
+</head>
+<body>
+<div class="wrapper">
+    <div class="minus-footer">
+        <div class="wrapper-header">
+        </div><!--wrapper-header-->
+        <div class="breadcrumb-wrapper">
+            breadcrumb-wrapper breadcrumb-wrapper
+        </div>
+        <div class="wrapper-top-menu">
+            top-menu top-menu top-menu
+        </div>
+
+        <div class="wrapper-content">
+            <div class="wrapper-sidebar-content">
+                <div class="wrapper-middle">
+<% if(catalogList || catalogPage) {
+                    %><% include catalog
+                    %><% } %><%
+                    if(articleList || articlePage) {
+                    %><% include article
+                    %><% } %><%
+                    if(basicList || basicPage) {
+                    %><% include basic
+                    %><% } %>
+                </div><!--wrapper-middle-->
+                <div class="sidebar1">
+                    sidebar1 sidebar1 sidebar1 sidebar1 sidebar1 sidebar1sidebar1 sidebar1 sidebar1 sidebar1
+                </div>
+            </div><!--wrapper-sidebar-content-->
+            <div class="sidebar2">
+                sidebar2 sidebar2 sidebar2 sidebar2 sidebar2 sidebar2 sidebar2 sidebar2v sidebar2
+            </div><!--sidebar2-->
+        </div><!--wrapper-content-->
+    </div><!--minus-footer-->
+    <div class="wrapper-footer">
+        <div class="footer-right">
+            <p class="copy">© Copyright www.MUSICAR.ru</p>
+        </div>
+        <div class="footer-middle">
+
+        </div>
+        <div class="footer-left">
+        </div>
+    </div><!--.wrapper-footer-->
+</div><!--.wrapper-->
+</body>
+</html>

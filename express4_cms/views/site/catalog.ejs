@@ -1,0 +1,8 @@
+                    <div class="content">
+                        <% for(var i=0; i < catalogList.length; i++){ %>
+                        <h3><a href="<%-pathname%>/<%-catalogList[i].alias%>"><%-catalogList[i].title%></a></h3>
+                        <% } %>
+                        <% if(catalogPage) { %>
+                        <h2><%-catalogPage.content%></h2>
+                        <% } %>
+                    </div><!--content-->

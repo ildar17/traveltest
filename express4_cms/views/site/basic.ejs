@@ -1,0 +1,8 @@
+                    <div class="content">
+                        <% for(var i=0; i < basicList.length; i++){ %>
+                        <h3><a href="<%-pathname%>/<%-basicList[i].alias%>"><%-basicList[i].title%></a></h3>
+                        <% } %>
+                        <% if(basicPage) { %>
+                        <h2><%-basicPage.content%></h2>
+                        <% } %>
+                    </div><!--content-->

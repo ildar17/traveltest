@@ -1,0 +1,12 @@
+<%if (locals.user) { %>
+<div id='menu'>
+    <span class='name'><%= user %></span>
+    <a href='/admin'>Личный Кабинет</a>
+    <a href='/admin/logout'>Выйти</a>
+</div>
+<% } else { %>
+<div id='menu'>
+    <a href='/admin/login'>Войти</a>
+    <a href='/admin/register'>Регистрация</a>
+</div>
+<% } %>

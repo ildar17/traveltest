@@ -1,5 +1,6 @@
 var express = require('express');
 var exphbs = require('express-handlebars');
+var fortunes = require('./lib/fortune');
 
 var app = express();
 
@@ -12,21 +13,11 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
 
-var fortunes = [
-
-	"Победи свои страхи, или они победят тебя.",
-	"Рекам нужны истоки.",
-	"Не бойся неведомого.",
-	"Тебя ждет приятный сюрприз.",
-	"Будь проще везде, где только можно.",
-];
-
 app.get('/', function(req, res) {
 	res.render('home');
 });
 app.get('/about', function(req, res) {
-	var randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-	res.render('about', { fortune: randomFortune });
+	res.render('about', { fortune: fortunes.getFortune() } );
 });
 
 

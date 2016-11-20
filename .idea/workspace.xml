@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9b75dab-c93c-4ad8-89d8-fd81be19a8d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/travel/meadowlark.js" afterPath="$PROJECT_DIR$/travel/meadowlark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/travel/package.json" afterPath="$PROJECT_DIR$/travel/package.json" />
     </list>
     <ignored path="workspace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +49,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/travel/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -99,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/chatrooms/server.js" />
         <option value="$PROJECT_DIR$/chatrooms/public/index.html" />
         <option value="$PROJECT_DIR$/chatrooms/package.json" />
         <option value="$PROJECT_DIR$/65/title.json" />
@@ -150,6 +150,7 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/travel/lib/fortune.js" />
         <option value="$PROJECT_DIR$/travel/meadowlark.js" />
+        <option value="$PROJECT_DIR$/travel/package.json" />
       </list>
     </option>
   </component>
@@ -447,7 +448,7 @@
       <workItem from="1479568833854" duration="18262000" />
       <workItem from="1479629013433" duration="11420000" />
       <workItem from="1479663362072" duration="5972000" />
-      <workItem from="1479669524518" duration="2251000" />
+      <workItem from="1479669524518" duration="2805000" />
     </task>
     <task id="LOCAL-00001" summary="create main file">
       <created>1479667520921</created>
@@ -488,7 +489,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293797000" />
+    <option name="totallyTimeSpent" value="294351000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -909,8 +910,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/travel/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="342">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
